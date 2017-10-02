@@ -45,7 +45,15 @@
     outdated format and should be abandoned in the future for sharing of
     geospatial vector data.
     </p>
+    <p><strong>Read more:</strong></p>
+    <ul>
+            <li><a href="thegoodside">The good side</a></li>
+            <li><a href="shapefileisbad">Shapefile is bad format</a></li>
+            <li><a href="alternativers">Shapefile alternatives</a></li>
+    </ul>
 
+    <hr>
+    <a name="thegoodside"></a>
     <h2>The good side</h2>
     <p>
         Not all Shapefile features do make it bad (or unmodern) format. There is
@@ -66,6 +74,7 @@
     </ul>
 
     <div class="alert alert-danger" role="alert">
+    <a name="shapefileisbad"></a>
     <h2 class="alert-heading">Shapefile is bad format</h2>
     <p>Why is Shapefile so bad? Here are several reasons, why the Shapefile is
     bad format and you should avoid it's usage:</p>
@@ -96,6 +105,7 @@
     </ul>
     </div>
     
+    <div class="alert alert-secondary" role="alert">
     <a name="#multifile"></a>
     <h3>Multifile format</h3>
     <p>
@@ -111,7 +121,9 @@
         has to zip all the files into one archive - and unzip it on the other
         end of the distribution chain.
     </p>
+    </div>
 
+    <div class="alert" role="alert">
     <a name="#10characters"></a>
     <h3>10 Characters attribute names</h3>
     <p>
@@ -119,7 +131,9 @@
         are usually automatically shorten. This is limiting to some application
         and leads to bad data arrangement.
     </p>
+    </div>
 
+    <div class="alert alert-secondary" role="alert">
     <a name="#255attributes"></a>
     <h3>255 attribute fields</h3>
     <p>
@@ -127,7 +141,9 @@
         application this is limiting especially in combination with the <a
        href="#hierarchy">flat table structure</a>.
     </p>
+    </div>
 
+    <div class="alert" role="alert">
     <a name="#datatypes"></a>
     <h3>Poor support for attribute data types</h3>
     <p>
@@ -140,7 +156,9 @@
     <p>
         There is no support for more advanced data fields, blobs etc.
     </p>
+    </div>
 
+    <div class="alert alert-secondary" role="alert">
     <a name="characterset"></a>
     <h3>Unknown character set</h3>
     <p>
@@ -152,8 +170,10 @@
     <p>
         The support for Unicode characters is also very limited.
     </p>
+    </div>
 
 
+    <div class="alert" role="alert">
     <a name="#sizelimit"></a>
     <h3>2GB Size limit</h3>
     <p>
@@ -173,28 +193,36 @@
 
         <p>So 4GB is all you can have in single Shapefile. This sounds enough,
         but not for all cases.</p>
+    </div>
 
+    <div class="alert alert-secondary" role="alert">
     <a name="#simplefeature"></a>
     <h3>Non-topological format</h3>
     <p>
         Shapefile is simple-feature format. There is no way, how to store more
         complex geometry relationships.
     </p>
+    </div>
 
+    <div class="alert" role="alert">
     <a name="#mixedgeometry"></a>
     <h3>No mixed geometry</h3>
     <p>
         Each file can be only one of the supported geometry formats (Point,
         Line, Polygon and others). Mixed geometry features are not possible.
     </p>
+    </div>
 
+    <div class="alert alert-secondary" role="alert">
     <a name="#hierarchy"></a>
     <h3>Flat data structure</h3>
     <p>
         The data structure is limited to <em>flat</em> tables with no
         hierarchies, relations or tree structure.
     </p>
+    </div>
 
+    <div class="alert" role="alert">
     <a name="#addmore"></a>
     <h3>Know about another issue? Send us more!</h3>
     <p>
@@ -203,8 +231,10 @@
        href="https://github.com/OpenGeoLabs/shapefilemustdie">the
        repository</a>.
     </p>
+    </div>
 
     <hr>
+    <a name="alternatives"></a>
     <h2>Alternatives</h2>
     <img class="format-logo img-thumbnail" src="images/prefer-geopackage.png"/>
     <p>
@@ -230,227 +260,237 @@
     </ul>
 
     <hr>
-    <a name="geopackage"></a>
-    <h3>OGC GeoPackage</h3>
-    <img class="format-logo img-thumbnail" src="images/geopkg.png"/>
-    <p class="lead">
-    <a href="http://geopackage.org">OGC GeoPackage</a> is one of the most
-    promising formats, designed for today's modern applications. GeoPackage is
-    published as standard by<a href="http://opengeospatial.org/standards/geopackage">Open
-    Geospatial Consoritum</a>.
-    </p>
-    <h4>Features</h4>
-    <ul>
-        <li>SQLite as backend</li>
-        <li>File based, single file</li>
-        <li>Vectors, rasters</li>
-        <li>Official extensions</li>
-        <li>Supported in many software packages</li>
-    </ul>
-    <h4>Description</h4>
-    <p>
-    GeoPackage is an open, standards-based, platform-independent, portable,
-    self-describing, compact format for transferring geospatial information.
-    </p>
-    <p>
-    The GeoPackage Encoding Standard describes a set of conventions for storing
-    the following within an SQLite database:
-    </p>
-    <ul>
-        <li>vector features</li>
-        <li>tile matrix sets of imagery and raster maps at various scales</li>
-        <li>attributes (non-spatial data)</li>
-        <li>extensions</li>
-    </ul>
 
-    <p>
-    There are already published <a
-                               href="http://www.geopackage.org/extensions.html">extensions</a>
-    for GeoPackage, who make this format even more powerful.
-    </p>
-    <p>
-    Geopackage is now (2017) <a href="https://twitter.com/pvangenuchten/status/914583535465435138">supported in most of the software packages</a>.
-    </p>
-    <p>
-    We believe, what GeoPackage is <strong>the</strong> candidate for Shapefile
-    replacement.
-    </p>
+    <div class="alert alert-success" role="alert">
 
+            <a name="geopackage"></a>
+            <h3>OGC GeoPackage</h3>
+            <img class="format-logo img-thumbnail" src="images/geopkg.png"/>
+            <p class="lead">
+            <a href="http://geopackage.org">OGC GeoPackage</a> is one of the most
+            promising formats, designed for today's modern applications. GeoPackage is
+            published as standard by<a href="http://opengeospatial.org/standards/geopackage">Open
+            Geospatial Consoritum</a>.
+            </p>
+            <h4>Features</h4>
+            <ul>
+                <li>SQLite as backend</li>
+                <li>File based, single file</li>
+                <li>Vectors, rasters</li>
+                <li>Official extensions</li>
+                <li>Supported in many software packages</li>
+            </ul>
+            <h4>Description</h4>
+            <p>
+            GeoPackage is an open, standards-based, platform-independent, portable,
+            self-describing, compact format for transferring geospatial information.
+            </p>
+            <p>
+            The GeoPackage Encoding Standard describes a set of conventions for storing
+            the following within an SQLite database:
+            </p>
+            <ul>
+                <li>vector features</li>
+                <li>tile matrix sets of imagery and raster maps at various scales</li>
+                <li>attributes (non-spatial data)</li>
+                <li>extensions</li>
+            </ul>
+
+            <p>
+            There are already published <a
+                                       href="http://www.geopackage.org/extensions.html">extensions</a>
+            for GeoPackage, who make this format even more powerful.
+            </p>
+            <p>
+            GeoPackage is now (2017) <a href="https://twitter.com/pvangenuchten/status/914583535465435138">supported in most of the software packages</a>.
+            </p>
+            <p>
+            We believe, what GeoPackage is <strong>the</strong> candidate for Shapefile
+            replacement.
+            </p>
+    </div>
+
+    <div class="alert">
+            <a name="gml"></a>
+            <h3>OGC GML</h3>
+            <img class="format-logo img-thumbnail" src="images/gml-sticker-tag-open.jpg"/>
+            <p class="lead">
+            Another <a href="http://opengeoslatial.org/standard/gml">OGC Standard</a>.
+            </p>
+            <h4>Features</h4>
+            <ul>
+                <li>XML Based</li>
+                <li>Only vectors</li>
+                <li>Hierarchies</li>
+                <li>Thanks to INSPIRE, supported in most of software package</li>
+            </ul>
+            <h4>Description</h4>
+            <p>
+            GML was picked as the main distribution vector data format the European
+            INSPIRE initiative. It's very complex format, but it's usage is hard in
+            daily praxis. One of the issues is, that in order to being able to process
+            the data file, it has to be loaded into computer memory, which makes it very
+            difficult to be used for large vector data sets.
+            </p>
+            <p>
+            GML is currently often use for open data data sets, since it's technology
+            neutral and supported OGC Standard.
+            </p>
+    </div>
+
+    <div class="alert alert-secondary" role="alert">
+            <a name="geodatabase"></a>
+            <h3>ESRI GeoDatabase</h3>
+
+            <p class="lead">
+            At its most basic level, an <a href="http://desktop.arcgis.com/en/arcmap/10.3/manage-data/geodatabases/what-is-a-geodatabase.htm">ArcGIS geodatabase</a> is a collection of geographic
+            datasets of various types held in a common file system folder, a Microsoft
+            Access database, or a multiuser relational DBMS (such as Oracle, Microsoft
+            SQL Server, PostgreSQL, Informix, or IBM DB2).
+            </p>
+            <h4>Features</h4>
+            <ul>
+                    <li>native data structure for ArcGIS</li>
+                    <li>file-based (or database based)</li>
+                    <li>complex data models</li>
+                    <li>proprietary, closed format</li>
+            </ul>
+            <h4>Description</h4>
+            <p>
+            GeoDatabase is very often used in the ArcGIS environment as the main
+            exchange data format. It's features are very complex and advanced.
+            </p>
+            <p>
+            On the other hand, it's proprietary closed format, which is used exclusively
+            in the environment of ESRI products, not implemented in other software
+            packages.
+            </p>
+    </div>
+
+    <div class="alert" role="alert">
+            <a name="spatialite"></a>
+            <h3>SpatiaLite</h3>
+            <img class="format-logo img-thumbnail" src="images/spatialite-logo.png"/>
+            <p class="lead">
+            <a href="https://www.gaia-gis.it/fossil/libspatialite/home">SpatiaLite</a>
+            is popular database, file based data storage.
+            </p>
+            <h4>Features</h4>
+            <ul>
+                    <li>File based</li>
+                    <li>SQL database</li>
+                    <li>OGC Simple feature</li>
+            </ul>
+            <h4>Description</h4>
+            <p>
+                SpatiaLite is an open source library intended to extend the SQLite core
+                to support fully fledged Spatial SQL capabilities.
+                SQLite is intrinsically simple and lightweight:
+            </p>
+            <ul>
+                    <li>a single lightweight library implementing the full SQL engine</li>
+                    <li>standard SQL implementation: almost complete SQL-92</li>
+                    <li>a whole database simply corresponds to a single monolithic file
+                            (no size limits)</li>
+                    <li>any DB-file can be safely exchanged across different platforms,
+                            because the internal architecture is universally
+                            portable</li>
+            </p>
+            <p>
+            To us, SpatiaLite seems to be the second best option after the <a
+               href="#geopackage">GeoPackage</a> possibility. They do build on top of
+               the same technology, which is SQLite.
+            </p>
+            <p>
+            Compared to GeoPackage, it lacks support for extensions and support for
+            raster data - that is certainly not a must-have feature, but it's good, if
+            we take this into consideration.
+            </p>
+    </div>
+
+
+    <div class="alert alert-secondary" role="alert">
+            <a name="csv"></a>
+            <h3>CSV</h3>
+            <img class="format-logo img-thumbnail" src="images/csv.png"/>
+            <p class="lead">
+            Some people tend to use <a href="https://www.ietf.org/rfc/rfc4180.txt">comma
+                    separated files</a> for storing of vector data.
+            </p>
+            <h4>Features</h4>
+            <ul>
+                <li>Simple</li>
+            </ul>
+
+            <h4>Description</h4>
+            <p>
+            Among non-GeoSpatial people, the CSV is very popular, but for most of
+            GeoSpatial applications it's unusable format.
+            </p>
+            <p>
+            At least two reasons for not using CSV as Shapefile replacement: It's not
+            standardized (there are many dialects out there), support for non-point
+            geospatial data is complicated.
+            </p>
+    </div>
+
+    <div class="alert" role="alert">
+            <a name="kml"></a>
+            <h3>OGC KML</h3>
+            <img class="format-logo img-thumbnail" src="images/kml.png"/>
+            <p class="lead">
+            Originally provided by Google <a
+               href="http://opengeospatial.org/standards/kml">OGC KML</a> used to be
+               very popular vector data format.
+            </p>
+            <h4>Features</h4>
+            <ul>
+                    <li>file-based</li>
+                    <li>XML</li>
+                    <li>Combines geometry along with cartography</li>
+                    <li>Supports just WGS-84 coordinate system</li>
+            </ul>
+            <h4>Description</h4>
+            <p>
+            Some years back, the KML format was very popular, but the geospatial
+            community hit on it's limits. Since XML based, it's not suitable for bigger
+            data data sets. It combines cartography along with the data geometry in one
+            file, what does not seem to be good sollution. And it officially supports
+            only WGS-84 coordinate reference system.
+            </p>
+    </div>
+
+    <div class="alert alert-secondary" role="alert">
+            <a name="geojson"></a>
+            <h3>GeoJSON</h3>
+            <img class="format-logo img-thumbnail" src="images/geojsonicon_400x400.png"/>
+            <p class="lead">
+            <a href="http://geojson.org">GeoJSON</a> is community format, based on the
+            popular <a href="http://json.org">JSON</a> data exchange format.
+            </p>
+            
+            <h4>Features</h4>
+            <ul>
+                    <li>JSON format</li>
+                    <li>File based</li>
+                    <li>Can handle complex data</li>
+                    <li>File size groves fast</li>
+            </ul>
+
+            <h4>Description</h4>
+            <p>GeoJSON is very simple, human-readable, text-based format. Although it
+            was design to support WGS-84 only, it's possible to use it for other
+            coordinate reference systems too. It can handle complex vector data
+            features, build complex hierarchical data models.
+            </p>
+            <p>
+            The problem with GeoJSON is, that the file grows very fast with amount of
+            coordinate pairs needed to be stored. Indexing and other advanced features
+            is not possible too.
+            </p>
+    </div>
     <hr>
-    <a name="gml"></a>
-    <h3>OGC GML</h3>
-    <img class="format-logo img-thumbnail" src="images/gml-sticker-tag-open.jpg"/>
-    <p class="lead">
-    Another <a href="http://opengeoslatial.org/standard/gml">OGC Standard</a>.
-    </p>
-    <h4>Features</h4>
-    <ul>
-        <li>XML Based</li>
-        <li>Only vectors</li>
-        <li>Hierarchies</li>
-        <li>Thanks to INSPIRE, supported in most of software package</li>
-    </ul>
-    <h4>Description</h4>
-    <p>
-    GML was picked as the main distribution vector data format the European
-    INSPIRE initiative. It's very complex format, but it's usage is hard in
-    daily praxis. One of the issues is, that in order to being able to process
-    the data file, it has to be loaded into computer memory, which makes it very
-    difficult to be used for large vector data sets.
-    </p>
-    <p>
-    GML is currently often use for open data data sets, since it's technology
-    neutral and supported OGC Standard.
-    </p>
 
-    <hr>
-    <a name="geodatabase"></a>
-    <h3>ESRI GeoDatabase</h3>
-
-    <p class="lead">
-    At its most basic level, an <a href="http://desktop.arcgis.com/en/arcmap/10.3/manage-data/geodatabases/what-is-a-geodatabase.htm">ArcGIS geodatabase</a> is a collection of geographic
-    datasets of various types held in a common file system folder, a Microsoft
-    Access database, or a multiuser relational DBMS (such as Oracle, Microsoft
-    SQL Server, PostgreSQL, Informix, or IBM DB2).
-    </p>
-    <h4>Features</h4>
-    <ul>
-            <li>native data structure for ArcGIS</li>
-            <li>file-based (or database based)</li>
-            <li>complex data models</li>
-            <li>proprietary, closed format</li>
-    </ul>
-    <h4>Description</h4>
-    <p>
-    GeoDatabase is very often used in the ArcGIS environment as the main
-    exchange data format. It's features are very complex and advanced.
-    </p>
-    <p>
-    On the other hand, it's proprietary closed format, which is used exclusively
-    in the environment of ESRI products, not implemented in other software
-    packages.
-    </p>
-
-    <hr>
-    <a name="spatialite"></a>
-    <h3>SpatiaLite</h3>
-    <img class="format-logo img-thumbnail" src="images/spatialite-logo.png"/>
-    <p class="lead">
-    <a href="https://www.gaia-gis.it/fossil/libspatialite/home">SpatiaLite</a>
-    is popular database, file based data storage.
-    </p>
-    <h4>Features</h4>
-    <ul>
-            <li>File based</li>
-            <li>SQL database</li>
-            <li>OGC Simple feature</li>
-    </ul>
-    <h4>Description</h4>
-    <p>
-        SpatiaLite is an open source library intended to extend the SQLite core
-        to support fully fledged Spatial SQL capabilities.
-        SQLite is intrinsically simple and lightweight:
-    </p>
-    <ul>
-            <li>a single lightweight library implementing the full SQL engine</li>
-            <li>standard SQL implementation: almost complete SQL-92</li>
-            <li>a whole database simply corresponds to a single monolithic file
-                    (no size limits)</li>
-            <li>any DB-file can be safely exchanged across different platforms,
-                    because the internal architecture is universally
-                    portable</li>
-    </p>
-    <p>
-    To us, SpatiaLite seems to be the second best option after the <a
-       href="#geopackage">GeoPackage</a> possibility. They do build on top of
-       the same technology, which is SQLite.
-    </p>
-    <p>
-    Compared to GeoPackage, it lacks support for extensions and support for
-    raster data - that is certainly not a must-have feature, but it's good, if
-    we take this into consideration.
-    </p>
-
-
-    <hr>
-    <a name="csv"></a>
-    <h3>CSV</h3>
-    <img class="format-logo img-thumbnail" src="images/csv.png"/>
-    <p class="lead">
-    Some people tend to use <a href="https://www.ietf.org/rfc/rfc4180.txt">comma
-            separated files</a> for storing of vector data.
-    </p>
-    <h4>Features</h4>
-    <ul>
-        <li>Simple</li>
-    </ul>
-
-    <h4>Description</h4>
-    <p>
-    Among non-GeoSpatial people, the CSV is very popular, but for most of
-    GeoSpatial applications it's unusable format.
-    </p>
-    <p>
-    At least two reasons for not using CSV as Shapefile replacement: It's not
-    standardized (there are many dialects out there), support for non-point
-    geospatial data is complicated.
-    </p>
-
-    <hr>
-    <a name="kml"></a>
-    <h3>OGC KML</h3>
-    <img class="format-logo img-thumbnail" src="images/kml.png"/>
-    <p class="lead">
-    Originally provided by Google <a
-       href="http://opengeospatial.org/standards/kml">OGC KML</a> used to be
-       very popular vector data format.
-    </p>
-    <h4>Features</h4>
-    <ul>
-            <li>file-based</li>
-            <li>XML</li>
-            <li>Combines geometry along with cartography</li>
-            <li>Supports just WGS-84 coordinate system</li>
-    </ul>
-    <h4>Description</h4>
-    <p>
-    Some years back, the KML format was very popular, but the geospatial
-    community hit on it's limits. Since XML based, it's not suitable for bigger
-    data data sets. It combines cartography along with the data geometry in one
-    file, what does not seem to be good sollution. And it officially supports
-    only WGS-84 coordinate reference system.
-    </p>
-
-    <hr>
-    <a name="geojson"></a>
-    <h3>GeoJSON</h3>
-    <img class="format-logo img-thumbnail" src="images/geojsonicon_400x400.png"/>
-    <p class="lead">
-    <a href="http://geojson.org">GeoJSON</a> is community format, based on the
-    popular <a href="http://json.org">JSON</a> data exchange format.
-    </p>
-    
-    <h4>Features</h4>
-    <ul>
-            <li>JSON format</li>
-            <li>File based</li>
-            <li>Can handle complex data</li>
-            <li>File size groves fast</li>
-    </ul>
-
-    <h4>Description</h4>
-    <p>GeoJSON is very simple, human-readable, text-based format. Although it
-    was design to support WGS-84 only, it's possible to use it for other
-    coordinate reference systems too. It can handle complex vector data
-    features, build complex hierarchical data models.
-    </p>
-    <p>
-    The problem with GeoJSON is, that the file grows very fast with amount of
-    coordinate pairs needed to be stored. Indexing and other advanced features
-    is not possible too.
-    </p>
-
-    <hr>
     <p>
     Last modification: 2017-10-02<br/>
     Initially created by: <a href="https://github.com/jachym/">Jachym Cepicky</a><br/>
