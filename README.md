@@ -1,6 +1,6 @@
 # shapefilemustdie
 
-Repository with source code of the web page http://switchtoshapefile.org
+Repository with source code of the web page http://switchfromshapefile.org
 
 ## Contributing
 
