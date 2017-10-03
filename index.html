@@ -31,28 +31,28 @@
     <img class="format-logo img-thumbnail" src="images/ban-shapefile.png" />
     <p class="lead">
     <a href="https://www.esri.com/library/whitepapers/pdfs/shapefile.pdf">ESRI
-            Shapefile</a> is <a
-            href="https://en.wikipedia.org/wiki/Shapefile">old file format for
-            storing geospatial vector data</a>. It has been around since early
+            Shapefile</a> is a <a
+            href="https://en.wikipedia.org/wiki/Shapefile">file format for
+            storing geospatial vector data</a>. It has been around since the early
     1990s. It is still used as most common exchange vector data format.
     </p>
     <p>The geospatial IT industry made a huge step since then, yet the Shapefile
     is still most common file format for sharing vector data.
     </p>
     <p>
-    Shapefile was great format in it's time and the fact, it's still used
-    today, proofs, that it's design was truly eternal.
+    Shapefile was a great format in it's time and the fact, that it's still used
+    today proofs, that it's design was truly eternal.
     </p>
     <p>
-    Yet we believe, the time of the Shapefile has passed and we, the Geospatial
-    IT Industry shall replace it with more modern concepts. Shapefile is now
+    Yet we believe, that the time of the Shapefile has passed and we, the Geospatial
+    IT Industry, shall replace it with more modern concepts. Shapefile is now an
     outdated format and should be abandoned in the future for sharing of
     geospatial vector data.
     </p>
     <p><strong>Read more:</strong></p>
     <ul>
             <li><a href="#thegoodside">The good side</a></li>
-            <li><a href="#shapefileisbad">Shapefile is bad format</a></li>
+            <li><a href="#shapefileisbad">Shapefile is a bad format</a></li>
             <li><a href="#alternatives">Shapefile alternatives</a></li>
     </ul>
 
@@ -60,33 +60,38 @@
     <a name="thegoodside"></a>
     <h2>The good side</h2>
     <p>
-        Not all Shapefile features do make it bad (or unmodern) format. There is
-        a couple of features, why Shapefile is still beating most of other
+        Not all Shapefile features do make it a bad (or unmodern) format. There is
+        a couple of reasons why Shapefile still beats most other
         formats:
     </p>
     <ul>
-        <li>It's open format. Even proprietary, the specification is open and
-                implemented wildly.</li>
-        <li>Shapefile is by far mostly supported format. If every other format
+        <li>Even though proprietary, the specification is open and
+                implemented everywhere.</li>
+        <li>Shapefile is by far the most supported format. If every other format
                 fails, Shapefile is always supported</li>
-        <li>For most of the usecases, it appears to be <em>good
-                        enough</em>.</li>
+        <li>For most of the usecases, it appears to be <em>good enough</em>.</li>
+		<li>Index files (e.g. *.shx) enable good reading performance.</li>
         <li>It appears to be relatively efficient - the resulting file, even
-                un-ziped - is relatively small, compared to some other, mostly
+                un-zipped - is relatively small, compared to some other, mostly
                 text-based formats.
         </li>
     </ul>
 
     <div class="alert alert-danger" role="alert">
     <a name="shapefileisbad"></a>
-    <h2 class="alert-heading">Shapefile is bad format</h2>
-    <p>Why is Shapefile so bad? Here are several reasons, why the Shapefile is
+	
+    <h2 class="alert-heading">Shapefile is a bad format</h2>
+	
+    <p>Why is Shapefile so bad? Here are several reasons why the Shapefile is a
     bad format and you should avoid it's usage:</p>
+	
     <ul>
-        <li><a href="#multifile">It's multifile format</a>. You can not
-                    share just one file, you always need to send at least 3, or zip them together</li>
+        <li><a href="#multifile">It's a multifile format</a>. You can not
+                share just one file, you always need to send at least 3 
+				(*.shp, *.dbf, *.prj), or zip them together, which makes 
+				sharing error-prone</li>
         <li><a href="#10characters">Attribute names are limited to 10
-                        characters</a>. If you need longer attribute names, you
+                characters</a>. If you need longer attribute names, you
                 are lost.</li>
         <li><a href="#255attributes">Only 255 attributes</a>. The DBF file does
                 not allow to store more then 255 attribute fields.</li>
@@ -103,9 +108,15 @@
         <li><a href="#mixedgeometry">Single geometry type per file</a>. There is
                 no way, how to save mixed geometry features.</li>
         <li><a href="#hierarchy">More complicated data structures are impossible
-                        to save</a>. It's "flat table" format.</li>
-        <li><a href="#addmore">Add
-                        more</a> ...</li>
+                to save</a>. It's "flat table" format.</li>
+        <li><a href="#3d">There is no way to store 3D data with textures or
+				appearances such as material definitions.</a> There is also no way 
+				to store solids or parametric objects.</li>
+		<li><a href="#projection">Projections defined in the *.prj file are 
+				incompatible.</a> Compared to definitions in EPSG / 
+				SpatialReference.org, Esri WKT often has different parameters, 
+				names and sometimes missing parameters.</li>
+		<li><a href="#addmore">Add more</a> ...</li>
     </ul>
     </div>
     
@@ -121,9 +132,10 @@
        limit's Shapefile has.
     </p>
     <p>
-        This is highly unpractical for distribution of the data. User usually
-        has to zip all the files into one archive - and unzip it on the other
-        end of the distribution chain.
+        This is highly unpractical for distribution of the data. Users usually
+        have to zip all the files into one archive - and unzip it on the other
+        end of the distribution chain. Custom additions are not supported by 
+		other tools and limit interoperability.
     </p>
     </div>
 
@@ -132,7 +144,7 @@
     <h3>10 Characters attribute names</h3>
     <p>
         Attribute names are limited to 10 characters at maximum. Longer names
-        are usually automatically shorten. This is limiting to some application
+        are usually automatically shortened. This is limiting to some applications
         and leads to bad data arrangement.
     </p>
     </div>
@@ -142,7 +154,7 @@
     <h3>255 attribute fields</h3>
     <p>
         There can be only 255 attribute fields in the database file. For some
-        application this is limiting especially in combination with the <a
+        applications, this is limiting especially in combination with the <a
        href="#hierarchy">flat table structure</a>.
     </p>
     </div>
@@ -158,7 +170,8 @@
         254 characters only. 
     </p>
     <p>
-        There is no support for more advanced data fields, blobs etc.
+        There is no support for more advanced data fields such as blobs, images 
+		or arrays.
     </p>
     </div>
 
@@ -166,7 +179,7 @@
     <a name="characterset"></a>
     <h3>Unknown character set</h3>
     <p>
-        There is now way how to specify character set used in the database. Most
+        There is no way how to specify character set used in the database. Most
         of the applications are using the old Windows-* or ISO-* data encodings,
         but nowadays, we are using UTF-8. Still there is no way how to specify
         this in file header.
@@ -203,7 +216,7 @@
     <a name="#simplefeature"></a>
     <h3>Non-topological format</h3>
     <p>
-        Shapefile is simple-feature format. There is no way, how to store more
+        Shapefile is simple-feature format. There is no way to store more
         complex geometry relationships.
     </p>
     </div>
@@ -223,6 +236,29 @@
     <p>
         The data structure is limited to <em>flat</em> tables with no
         hierarchies, relations or tree structure.
+    </p>
+    </div>
+	
+	<div class="alert" role="alert">
+    <a name="#3d"></a>
+    <h3>Very limited 3D support</h3>
+    <p>
+        Shapefile can't store material definitions nor textures (images 
+		with texture coordinates). 3D models are stored as a triangle or
+		polygon soup, with no watertight models or parametric geometries
+		being supported.
+    </p>
+    </div>
+
+    <div class="alert alert-secondary" role="alert">
+    <a name="#projection"></a>
+    <h3>Projection Definition Inconsistencies</h3>
+    <p>
+        Shapefiles use Esri WKT definitions, which are often incompatible
+		with standard definitions in EPSG or other sources on aspects such
+		as axis order or unit definitions. Furthermore, they often miss 
+		parameters required for reprojection ("Missing Bursa Wolf 
+		Parameters", anyone?)
     </p>
     </div>
 
@@ -274,7 +310,7 @@
             <a href="http://geopackage.org">OGC GeoPackage</a> is one of the most
             promising formats, designed for today's modern applications. GeoPackage is
             published as standard by<a href="http://opengeospatial.org/standards/geopackage">Open
-            Geospatial Consoritum</a>.
+            Geospatial Consortium</a>.
             </p>
             <h4>Features</h4>
             <ul>
@@ -326,18 +362,17 @@
                 <li>XML Based</li>
                 <li>Only vectors</li>
                 <li>Hierarchies</li>
-                <li>Thanks to INSPIRE, supported in most of software package</li>
+                <li>Thanks to INSPIRE, supported in most of software packages</li>
             </ul>
             <h4>Description</h4>
             <p>
             GML was picked as the main distribution vector data format the European
-            INSPIRE initiative. It's very complex format, but it's usage is hard in
-            daily praxis. One of the issues is, that in order to being able to process
-            the data file, it has to be loaded into computer memory, which makes it very
-            difficult to be used for large vector data sets.
+            INSPIRE initiative. It's a very complex format, and it's direct usage in
+			GIS software is limited. It's main use is as a data exchange format that needs to be 
+			ingested into the user's system (e.g. into a database) to be fully useable.
             </p>
             <p>
-            GML is currently often use for open data data sets, since it's technology
+            GML is currently often used for open data data sets, since it's technology
             neutral and supported OGC Standard.
             </p>
     </div>
@@ -428,12 +463,12 @@
 
             <h4>Description</h4>
             <p>
-            Among non-GeoSpatial people, the CSV is very popular, but for most of
+            Among non-GeoSpatial people, CSV is very popular, but for most of
             GeoSpatial applications it's unusable format.
             </p>
             <p>
             At least two reasons for not using CSV as Shapefile replacement: It's not
-            standardized (there are many dialects out there), support for non-point
+            standardized (there are many dialects out there), and support for non-point
             geospatial data is complicated.
             </p>
     </div>
