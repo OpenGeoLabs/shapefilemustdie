@@ -375,8 +375,10 @@
 
             <h4>Description</h4>
             <p>GeoJSON is very simple, human-readable, text-based format. Although it
-            was design to support WGS-84 only, it's possible to use it for other
-            coordinate reference systems too. It can handle complex vector data
+            is technically possible to use it with more coordinate reference
+            systems, the <a href="https://tools.ietf.org/html/rfc7946#section-4">specification
+                       states clearly</a>, that WGS84 is the only system, which
+               should be used. It can handle complex vector data
             features and build complex hierarchical data models.
             </p>
             <p>Since GeoJSON is based on JSON it is very easy to parse, additonally it can be streamed where features are dealt with as they come in without waiting for the whole file to load.</p>
@@ -542,7 +544,8 @@
 
     <p>
     Last modification: 2017-10-02<br/>
-    Initially created by: <a href="https://github.com/jachym/">Jachym Cepicky</a><br/>
+    Initially created by: <a href="https://github.com/jachym/">Jachym Cepicky</a>,
+                          <a href="http://opengeolabs.cz/en/home">OpenGeoLabs s.r.o.</a><br/>
     <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
         <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
         <br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a><br />
