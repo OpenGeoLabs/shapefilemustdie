@@ -79,16 +79,16 @@
 
     <div class="alert alert-danger" role="alert">
     <a name="shapefileisbad"></a>
-	
+
     <h2 class="alert-heading">Shapefile is a bad format</h2>
-	
+
     <p>Why is Shapefile so bad? Here are several reasons why the Shapefile is a
     bad format and you should avoid it's usage:</p>
-	
+
     <ul>
         <li><a href="#multifile">It's a multifile format</a>. You can not
-                share just one file, you always need to send at least 3 
-				(*.shp, *.dbf, *.prj), or zip them together, which makes 
+                share just one file, you always need to send at least 3
+				(*.shp, *.dbf, *.prj), or zip them together, which makes
 				sharing error-prone</li>
         <li><a href="#10characters">Attribute names are limited to 10
                 characters</a>. If you need longer attribute names, you
@@ -110,18 +110,18 @@
         <li><a href="#hierarchy">More complicated data structures are impossible
                 to save</a>. It's "flat table" format.</li>
         <li><a href="#3d">There is no way to store 3D data with textures or
-				appearances such as material definitions.</a> There is also no way 
+				appearances such as material definitions.</a> There is also no way
 				to store solids or parametric objects.</li>
-		<li><a href="#projection">Projections defined in the *.prj file are 
-				incompatible.</a> Compared to definitions in EPSG / 
-				SpatialReference.org, Esri WKT often has different parameters, 
+		<li><a href="#projection">Projections defined in the *.prj file are
+				incompatible.</a> Compared to definitions in EPSG /
+				SpatialReference.org, Esri WKT often has different parameters,
 				names and sometimes missing parameters.</li>
 		<li><a href="#addmore">Add more</a> ...</li>
     </ul>
     </div>
-    
+
     <div class="alert alert-secondary" role="alert">
-    <a name="#multifile"></a>
+    <a name="multifile"></a>
     <h3>Multifile format</h3>
     <p>
     The Shapefile uses <a
@@ -134,13 +134,13 @@
     <p>
         This is highly unpractical for distribution of the data. Users usually
         have to zip all the files into one archive - and unzip it on the other
-        end of the distribution chain. Custom additions are not supported by 
+        end of the distribution chain. Custom additions are not supported by
 		other tools and limit interoperability.
     </p>
     </div>
 
     <div class="alert" role="alert">
-    <a name="#10characters"></a>
+    <a name="10characters"></a>
     <h3>10 Characters attribute names</h3>
     <p>
         Attribute names are limited to 10 characters at maximum. Longer names
@@ -150,7 +150,7 @@
     </div>
 
     <div class="alert alert-secondary" role="alert">
-    <a name="#255attributes"></a>
+    <a name="255attributes"></a>
     <h3>255 attribute fields</h3>
     <p>
         There can be only 255 attribute fields in the database file. For some
@@ -160,17 +160,17 @@
     </div>
 
     <div class="alert" role="alert">
-    <a name="#datatypes"></a>
+    <a name="datatypes"></a>
     <h3>Poor support for attribute data types</h3>
     <p>
         Float, integer, date and character string data types are supported. But
         floating point numbers are stored as text, there is no support for big
         integers (thus the format is not usable, you are having data with big
         integer identifiers, such as cadastral map) and the text is limited to
-        254 characters only. 
+        254 characters only.
     </p>
     <p>
-        There is no support for more advanced data fields such as blobs, images 
+        There is no support for more advanced data fields such as blobs, images
 		or arrays.
     </p>
     </div>
@@ -191,12 +191,12 @@
 
 
     <div class="alert" role="alert">
-    <a name="#sizelimit"></a>
+    <a name="sizelimit"></a>
     <h3>2GB Size limit</h3>
     <p>
         The size of both .shp and .dbf component files cannot exceed 2 GB. <a
        href="http://www.gdal.org/drv_shapefile.html">GDAL Shapefile driver</a>
-        overcomes this limit, but 
+        overcomes this limit, but
     </p>
 
         <blockquote><p>The Shapefile format explicitly uses 32bit offsets and so cannot go
@@ -213,7 +213,7 @@
     </div>
 
     <div class="alert alert-secondary" role="alert">
-    <a name="#simplefeature"></a>
+    <a name="simplefeature"></a>
     <h3>Non-topological format</h3>
     <p>
         Shapefile is simple-feature format. There is no way to store more
@@ -222,7 +222,7 @@
     </div>
 
     <div class="alert" role="alert">
-    <a name="#mixedgeometry"></a>
+    <a name="mixedgeometry"></a>
     <h3>No mixed geometry</h3>
     <p>
         Each file can be only one of the supported geometry formats (Point,
@@ -231,19 +231,19 @@
     </div>
 
     <div class="alert alert-secondary" role="alert">
-    <a name="#hierarchy"></a>
+    <a name="hierarchy"></a>
     <h3>Flat data structure</h3>
     <p>
         The data structure is limited to <em>flat</em> tables with no
         hierarchies, relations or tree structure.
     </p>
     </div>
-	
+
 	<div class="alert" role="alert">
-    <a name="#3d"></a>
+    <a name="3d"></a>
     <h3>Very limited 3D support</h3>
     <p>
-        Shapefile can't store material definitions nor textures (images 
+        Shapefile can't store material definitions nor textures (images
 		with texture coordinates). 3D models are stored as a triangle or
 		polygon soup, with no watertight models or parametric geometries
 		being supported.
@@ -251,19 +251,19 @@
     </div>
 
     <div class="alert alert-secondary" role="alert">
-    <a name="#projection"></a>
+    <a name="projection"></a>
     <h3>Projection Definition Inconsistencies</h3>
     <p>
         Shapefiles use Esri WKT definitions, which are often incompatible
 		with standard definitions in EPSG or other sources on aspects such
-		as axis order or unit definitions. Furthermore, they often miss 
-		parameters required for reprojection ("Missing Bursa Wolf 
+		as axis order or unit definitions. Furthermore, they often miss
+		parameters required for reprojection ("Missing Bursa Wolf
 		Parameters", anyone?)
     </p>
     </div>
 
     <div class="alert" role="alert">
-    <a name="#addmore"></a>
+    <a name="addmore"></a>
     <h3>Know about another issue? Send us more!</h3>
     <p>
         Do you know about more limits or do you want to extend existing once?
@@ -290,13 +290,14 @@
     </p>
     <strong>List of some Shapefile alternatives</strong>
     <ul>
-            <li><strong><a href="#geopackage">OGC GeoPackage</a></strong></li> 
-            <li><a href="#gml">OGC GML</a></li> 
-            <li><a href="#geodatabase">ESRI GeoDatabase</a></li> 
-            <li><a href="#spatialite">SpatiaLite</a></li> 
-            <li><a href="#csv">CSV</a></li> 
-            <li><a href="#kml">OGC KML</a></li> 
-            <li><a href="#geojson">GeoJSON</a></li> 
+            <li><strong><a href="#geopackage">OGC GeoPackage</a></strong></li>
+            <li><strong><a href="#geojson">GeoJSON</a></strong></li>
+            <li><a href="#gml">OGC GML</a></li>
+            <li><a href="#geodatabase">ESRI GeoDatabase</a></li>
+            <li><a href="#spatialite">SpatiaLite</a></li>
+            <li><a href="#csv">CSV</a></li>
+            <li><a href="#kml">OGC KML</a></li>
+
     </ul>
 
     <hr>
@@ -344,13 +345,43 @@
             <p>
             GeoPackage is now (2017) <a href="https://twitter.com/pvangenuchten/status/914583535465435138">supported in most of the software packages</a>.
             </p>
+            <p>A major downside is that, being based on SQLite, data is in a complex binary format that can't be streamed typically must be written to disk before opened.</p>
             <p>
-            We believe, what GeoPackage is <strong>the</strong> candidate for Shapefile
-            replacement.
+            We believe, that GeoPackage is a candidate for Shapefile
+            replacement for editing data locally.
             </p>
     </div>
+    <div class="alert" role="alert">
+            <a name="geojson"></a>
+            <h3>GeoJSON</h3>
+            <img class="format-logo img-thumbnail" src="images/geojsonicon_400x400.png"/>
+            <p class="lead">
+            <a href="http://geojson.org">GeoJSON</a> is community format, based on the
+            popular <a href="http://json.org">JSON</a> data exchange format.
+            </p>
 
-    <div class="alert">
+            <h4>Features</h4>
+            <ul>
+                    <li>JSON format</li>
+                    <li>File based</li>
+                    <li>Can handle complex data</li>
+                    <li>File size grows fast</li>
+                    <li>IETF Standard</li>
+            </ul>
+
+            <h4>Description</h4>
+            <p>GeoJSON is very simple, human-readable, text-based format. Although it
+            was design to support WGS-84 only, it's possible to use it for other
+            coordinate reference systems too. It can handle complex vector data
+            features and build complex hierarchical data models.
+            </p>
+            <p>Since GeoJSON is based on JSON it is very easy to parse, additonally it can be streamed where features are dealt with as they come in without waiting for the whole file to load.</p>
+            <p>
+            The problem with GeoJSON is that not all geometries can be represented and advanced coordiante reference systems are not well supported.</p>
+            <p>We recomend GeoJSON as a Shapefile replacement for most data interchange. Datasets that <strong>must</strong> be tranfered in a non WGS-84 coordinate reference system or have geometry not representable in GeoJSON can use GML but for the vast majority of datasets GML is overkill.
+            </p>
+    </div>
+    <div class="alert alert-secondary">
             <a name="gml"></a>
             <h3>OGC GML</h3>
             <img class="format-logo img-thumbnail" src="images/gml-sticker-tag-open.jpg"/>
@@ -368,41 +399,17 @@
             <p>
             GML was picked as the main distribution vector data format the European
             INSPIRE initiative. It's a very complex format, and it's direct usage in
-			GIS software is limited. It's main use is as a data exchange format that needs to be 
+			GIS software is limited. It's main use is as a data exchange format that needs to be
 			ingested into the user's system (e.g. into a database) to be fully useable.
             </p>
             <p>
             GML is currently often used for open data data sets, since it's technology
             neutral and supported OGC Standard.
             </p>
-    </div>
-
-    <div class="alert alert-secondary" role="alert">
-            <a name="geodatabase"></a>
-            <h3>ESRI GeoDatabase</h3>
-
-            <p class="lead">
-            At its most basic level, an <a href="http://desktop.arcgis.com/en/arcmap/10.3/manage-data/geodatabases/what-is-a-geodatabase.htm">ArcGIS geodatabase</a> is a collection of geographic
-            datasets of various types held in a common file system folder, a Microsoft
-            Access database, or a multiuser relational DBMS (such as Oracle, Microsoft
-            SQL Server, PostgreSQL, Informix, or IBM DB2).
-            </p>
-            <h4>Features</h4>
-            <ul>
-                    <li>native data structure for ArcGIS</li>
-                    <li>file-based (or database based)</li>
-                    <li>complex data models</li>
-                    <li>proprietary, closed format</li>
-            </ul>
-            <h4>Description</h4>
+            <p>A major downside to GML is that it is an <a href="http://erouault.blogspot.com/2014/04/gml-madness.html">insanely complex standard</a>, few pieces of software support all parts of the standard, and different pieces of software sometimes suport different parts of the standard.</p>
             <p>
-            GeoDatabase is very often used in the ArcGIS environment as the main
-            exchange data format. It's features are very complex and advanced.
-            </p>
-            <p>
-            On the other hand, it's proprietary closed format, which is used exclusively
-            in the environment of ESRI products, not implemented in other software
-            packages.
+            We believe, what GML is a candidate for Shapefile
+            replacement for data interchange in situations where data is too copmlex to be represented by GeoJSON.
             </p>
     </div>
 
@@ -443,7 +450,7 @@
             <p>
             Compared to GeoPackage, it lacks support for extensions and support for
             raster data - that is certainly not a must-have feature, but it's good, if
-            we take this into consideration.
+            we take this into consideration. Like GeoPackage it suffers the same issues inherint to SQLite that make it a poor choice for data interchange.
             </p>
     </div>
 
@@ -498,36 +505,35 @@
             only WGS-84 coordinate reference system.
             </p>
     </div>
-
     <div class="alert alert-secondary" role="alert">
-            <a name="geojson"></a>
-            <h3>GeoJSON</h3>
-            <img class="format-logo img-thumbnail" src="images/geojsonicon_400x400.png"/>
+            <a name="geodatabase"></a>
+            <h3>ESRI GeoDatabase</h3>
+
             <p class="lead">
-            <a href="http://geojson.org">GeoJSON</a> is community format, based on the
-            popular <a href="http://json.org">JSON</a> data exchange format.
+            At its most basic level, an <a href="http://desktop.arcgis.com/en/arcmap/10.3/manage-data/geodatabases/what-is-a-geodatabase.htm">ArcGIS geodatabase</a> is a collection of geographic
+            datasets of various types held in a common file system folder, a Microsoft
+            Access database, or a multiuser relational DBMS (such as Oracle, Microsoft
+            SQL Server, PostgreSQL, Informix, or IBM DB2).
             </p>
-            
             <h4>Features</h4>
             <ul>
-                    <li>JSON format</li>
-                    <li>File based</li>
-                    <li>Can handle complex data</li>
-                    <li>File size grows fast</li>
+                    <li>native data structure for ArcGIS</li>
+                    <li>file-based (or database based)</li>
+                    <li>complex data models</li>
+                    <li>proprietary, closed format</li>
             </ul>
-
             <h4>Description</h4>
-            <p>GeoJSON is very simple, human-readable, text-based format. Although it
-            was design to support WGS-84 only, it's possible to use it for other
-            coordinate reference systems too. It can handle complex vector data
-            features and build complex hierarchical data models.
+            <p>
+            GeoDatabase is very often used in the ArcGIS environment as the main
+            exchange data format. It's features are very complex and advanced.
             </p>
             <p>
-            The problem with GeoJSON is that the file grows very fast with the number of
-            coordinate pairs stored. Indexing and other advanced features
-            are not possible either.
+            On the other hand, it's proprietary closed format, which is used exclusively
+            in the environment of ESRI products, not implemented in other software
+            packages.  It's a strong candidate replacing Shapefiles for local data editing in an ArcGIS enviroment.
             </p>
     </div>
+
     <hr>
 
     <p>
