@@ -9,4 +9,3 @@ Contribute by sending standard pull request to `gh-pages` branch
 ## License
 
 Creative commons share alike
-
