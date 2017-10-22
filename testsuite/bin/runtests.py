@@ -35,7 +35,7 @@ def main():
     if not os.path.isdir(output):
         os.mkdir(output)
 
-    formats = prepare_data(args.tempdir, args.input.name if args.input else None)
+    formats = prepare_data(args.tempdir, args.input.name)
     stats = make_stats(formats, output, args.repeat, args.where, args.fid, args.spat)
 
 if __name__ == "__main__":

@@ -16,7 +16,7 @@ FORMATS=(
     ["GPKG", "gpkg"],
     ["GML", "gml"],
     ["GeoJSON", "geojson"],
-    #["FileGDB", "gdb"],
+    ["FileGDB", "gdb"],
     ["FlatGeobuf", "fgb"]
 )
 
