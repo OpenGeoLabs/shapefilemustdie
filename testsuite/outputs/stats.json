@@ -1,0 +1,38 @@
+{
+  "spat": {
+    "GPKG": 0.048057263978989795,
+    "GML": 343.3025719569996,
+    "ESRI Shapefile": 16.999171105999267,
+    "GeoJSON": null
+  },
+  "seq": {
+    "GPKG": 241.53338077000808,
+    "GML": 604.6719867950014,
+    "ESRI Shapefile": 237.03450499402243,
+    "GeoJSON": null
+  },
+  "fid": {
+    "GPKG": 2.938916106009856,
+    "GML": 241.60755829000846,
+    "ESRI Shapefile": 0.34073773300042376,
+    "GeoJSON": null
+  },
+  "where": {
+    "GPKG": 7.732582016004017,
+    "GML": 377.7504133799812,
+    "ESRI Shapefile": 40.549172239989275,
+    "GeoJSON": null
+  },
+  "size": {
+    "GPKG": 2830307328,
+    "GML": 6509654779,
+    "ESRI Shapefile": 3479576609,
+    "GeoJSON": 4024587722
+  },
+  "metadata": {
+    "GPKG": 3.129738196992548,
+    "GML": 258.6620598669979,
+    "ESRI Shapefile": 0.37446932701277547,
+    "GeoJSON": null
+  }
+}
