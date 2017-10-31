@@ -5,7 +5,7 @@
   <meta charset="utf-8">
 
   <title>Shapefile must die!</title>
-  <meta name="description" content="Page explaining, why ESRI Shapefile is such a bad format and we should get rid of it.">
+  <meta name="description" content="Page explaining why Esri Shapefile is a flawed format and that other alternatives should be used.">
   <meta name="author" content="Jachym Cepicky - OpenGeoLabs.cz">
   <meta name="keywords" content="gis,#g,shapefile,ESRI Shapefile,bad,get rid of,die">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -34,20 +34,15 @@
             Shapefile</a> is a <a
             href="https://en.wikipedia.org/wiki/Shapefile">file format for
             storing geospatial vector data</a>. It has been around since the early
-    1990s. It is still used as the most common vector data exchange format.
+    1990s and is still the most commonly used vector data exchange format.
     </p>
-    <p>The geospatial IT industry made huge advances since then, yet the Shapefile
-    is still most common file format for sharing vector data.
-    </p>
-    <p>
-    Shapefile was a great format in it's time, and the fact that it's still used
-    today, is proof that its design was forward thinking.
+    <p>While Shapefiles have enabled many successful activities over the years, they also 
+    have a number of limitations that complicate software development and reduce efficiency.
     </p>
     <p>
-    Yet we believe, that the time of the Shapefile has passed and we, the Geospatial
-    IT Industry, should replace it with more modern concepts. Shapefile is now an
-    outdated format and should be abandoned in the future for sharing of
-    geospatial vector data.
+    We, members of the geospatial IT industry, believe that it is time to stop using Shapefiles
+    as the primary vector data exchange format and to replace them with a format that takes 
+    advantage of the huge advances that have been made since Shapefile was introduced.
     </p>
     <p><strong>Read more:</strong></p>
     <ul>
@@ -60,20 +55,21 @@
     <a name="thegoodside"></a>
     <h2>The good side</h2>
     <p>
-        Not all Shapefile features do make it a bad (or unmodern) format. There are
-        a couple of reasons why Shapefile still beats most other
-        formats:
+        Shapefile does a lot of things right. 
+        Here are some reasons why Shapefile is so heavily used:
     </p>
     <ul>
-        <li>Even though proprietary, the specification is open and
-                implemented everywhere.</li>
-        <li>Shapefile is by far the most widely supported format. If every other format
-                fails, Shapefile is always supported</li>
-        <li>For most usecases, it appears to be <em>good enough</em>.</li>
-		<li>Index files (e.g. *.shx) enable good reading performance.</li>
-        <li>It appears to be relatively efficient. The resulting file, even
-                un-zipped, is relatively small compared to some other, mostly
-                text-based formats.
+        <li>Shapefile is by far the most widely supported format in existing software packages.</li>
+        <li>While the format is proprietary, the 
+          <a href="http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf">specification is open</a>.</li>
+        <li>For many use cases, it is <em>good enough</em>.
+          <ul>
+            <li>Index files (e.g. *.shx) enable good reading performance.</li>
+            <li>It is relatively efficient in terms of file size. The resulting file, even
+                    un-zipped, is relatively small compared to some other (mostly
+                    text-based) formats.
+            </li>
+          </ul>
         </li>
     </ul>
 
@@ -86,20 +82,16 @@
     bad format and you should avoid its usage:</p>
 
     <ul>
-        <li><a href="#multifile">It's a multifile format</a>. You can not
-                share just one file, you always need to send at least three
-				(*.shp, *.dbf, *.prj), or zip them together, which makes
-				sharing error-prone</li>
+        <li><a href="#multifile">It's a multifile format</a>.</li>
         <li><a href="#10characters">Attribute names are limited to 10
-                characters</a>. If you need longer attribute names, you
-                are lost.</li>
+                characters</a>.</li>
         <li><a href="#255attributes">Only 255 attributes</a>. The DBF file does
                 not allow you to store more then 255 attribute fields.</li>
         <li><a href="#datatypes">Limited data types</a>. Data types are limited
                 to float, integer, date and text with a maximum 254
                 characters.</li>
         <li><a href="#characterset">Unknown character set</a>. There is no way
-                to specify character set used in the database.</li>
+                to specify the character set used in the database.</li>
         <li><a href="#sizelimit">It's limited to 2GB of file size</a>. Although some
                 tools are able to surpass this limit, they can never exceed 4GB
                 of data.</li>
@@ -126,16 +118,15 @@
     <p>
     The Shapefile format uses <a
        href="https://en.wikipedia.org/wiki/Shapefile#Overview">at least 3
-       files</a>, but there are up to 10 other file extensions, which can be
-       distributed along with the Shapefile. Nearly every geospatial software
-       package is adding its own extension to try to overcome some of the
-       limits Shapefile has.
+       files</a> (*.shp, *.dbf, *.prj). Users cannot share just one file; you 
+       must send them all. Users typically zip all the files into one archive
+       and unzip them on the other end of the distribution chain, but this is 
+       cumbersome and error-prone.
     </p>
     <p>
-        This is highly impractical for distribution of data. Users usually
-        have to zip all the files into one archive, and unzip them on the other
-        end of the distribution chain. Custom additions are not supported by
-		other tools and limit interoperability.
+      In addition, other geospatial software packages routinely add their own 
+      extensions to try to overcome Shapefile limitations. Custom additions 
+      are not supported by other tools and limit interoperability.
     </p>
     </div>
 
@@ -144,8 +135,9 @@
     <h3>10 Characters attribute names</h3>
     <p>
         Attribute names are limited to 10 characters max. Longer names
-        are usually automatically shortened. This is limiting to some applications
-        and leads to bad data arrangement.
+        are usually automatically shortened. This leads to abbreviated and/or 
+        cryptic attribute names that are unintuitive to the recipient of the 
+        data.
     </p>
     </div>
 
@@ -279,7 +271,7 @@
     <img class="format-logo img-thumbnail" src="images/prefer-geopackage.png"/>
     <p>
     What are the alternatives to the Shapefile format? To be honest, no alternative
-    format has overthrown Shapefiles hegemony yet. Some formats nearly
+    format has overthrown the Shapefile hegemony yet. Some formats nearly
     took over (KML, GML, GeoJSON), but their usage was limited to relatively
     narrow use cases only.
     </p>
@@ -310,8 +302,6 @@
             <h3>OGC GeoPackage</h3>
             <img class="format-logo img-thumbnail" src="images/geopkg.png"/>
             <p class="lead">
-            <blockquote>GeoJSON isn't a shapefile replacement.<br/>
-            -- Sean Gillies</blockquote>
             <a href="http://geopackage.org">OGC GeoPackage</a> is one of the most
             promising formats, designed for today's modern applications. GeoPackage is
             published as standard by the <a href="http://opengeospatial.org/standards/geopackage">Open
@@ -342,17 +332,20 @@
             </ul>
 
             <p>
-            There are several published <a
-                                       href="http://www.geopackage.org/extensions.html">extensions</a>
-            for GeoPackage, which make this format even more powerful.
+            There are several published <a href="http://www.geopackage.org/extensions.html">extensions</a>
+            for GeoPackage which make this format even more powerful.
             </p>
             <p>
             GeoPackage is now (2017) <a href="https://twitter.com/pvangenuchten/status/914583535465435138">supported in most GIS software packages</a>.
             </p>
-            <p>A major downside is that, being based on SQLite, data is in a complex binary format that can't be streamed. It typically must be written to disk before opening.</p>
-            <p>
-            We believe that GeoPackage is a candidate for Shapefile
-            replacement for editing data locally.
+            <p>One downside to GeoPackage is that the underlying SQLite database
+              is a complex binary format that is not suitable for streaming.
+              It either must be written to the local file system or accessed
+              through an intermediary service.
+            </p>
+            <p>We recommend GeoPackage as a Shapefile replacement for 
+              scenarios where the recipient will want to query or edit the 
+              data locally.
             </p>
     </div>
     <div class="alert" role="alert">
@@ -360,7 +353,9 @@
             <h3>GeoJSON</h3>
             <img class="format-logo img-thumbnail" src="images/geojsonicon_400x400.png"/>
             <p class="lead">
-            <a href="http://geojson.org">GeoJSON</a> is a community format, based on the
+              <blockquote>"GeoJSON isn't a shapefile replacement."<br/>
+              -- Sean Gillies</blockquote>
+            <a href="http://geojson.org">GeoJSON</a> is a community format based on the
             popular <a href="http://json.org">JSON</a> data exchange format.
             </p>
 
@@ -381,10 +376,12 @@
                should be used. It can handle complex vector data
             features and build complex hierarchical data models.
             </p>
-            <p>Since GeoJSON is based on JSON it is very easy to parse, additonally it can be streamed (Features are dealt with as they come in without waiting for the whole file to load)</p>
+            <p>Since GeoJSON is a JSON encoding it is very easy to parse.
+            It also supports streaming (features are dealt with as they come in without waiting for the whole file to load).</p>
             <p>
             The problem with GeoJSON is that not all geometries can be represented and advanced coordinate reference systems are not well supported.</p>
-            <p>We recomend GeoJSON as a Shapefile replacement for most data interchange. Datasets that <strong>must</strong> be tranfered in a non WGS-84 coordinate reference system or have geometry not representable in GeoJSON, might use GML. However for the vast majority of datasets, GML is overkill.
+            <p>We recommend GeoJSON as a Shapefile replacement for data interchange particularly for web services. For datasets with
+              geometries or coordinate reference systems not representable in GeoJSON, GML may be suitable.
             </p>
     </div>
     <div class="alert alert-secondary">
@@ -399,23 +396,25 @@
                 <li>XML Based</li>
                 <li>Only vectors</li>
                 <li>Hierarchies</li>
-                <li>Thanks to INSPIRE, supported in most of software packages</li>
+                <li>Thanks to INSPIRE, at least partial support in many software packages</li>
             </ul>
             <h4>Description</h4>
             <p>
             GML was picked as the main distribution vector data format the European
             INSPIRE initiative. It's a very complex format, and its direct usage in
 			GIS software is limited. Its main use is as a data exchange format that needs to be
-			ingested into the user's system (e.g. into a database) to be fully useable.
+			ingested into the user's system (e.g. into a database) to be fully usable.
             </p>
             <p>
-            GML is currently often used for open data datasets, since it's technology
-            neutral and a supported OGC Standard.
+            GML is currently often used for open data datasets, since it is 
+            technology-neutral and a supported OGC Standard.
             </p>
-            <p>A major downside to GML is that it is an <a href="http://erouault.blogspot.com/2014/04/gml-madness.html">insanely complex standard</a>, few pieces of software support all parts of the standard, and different pieces of software sometimes support different parts of the standard.</p>
+            <p>A major downside to GML is that it is an <a href="http://erouault.blogspot.com/2014/04/gml-madness.html">insanely complex standard</a>.
+              Few software packages support the entire standard and support for individual parts of the standard varies widely.</p>
             <p>
             We believe that GML is a candidate for Shapefile
-            replacement for data interchange in situations where data is too complex to be represented by GeoJSON.
+            replacement for data interchange in situations where data is too complex to be represented by GeoJSON. 
+            However, for the vast majority of datasets GML is overkill.
             </p>
     </div>
 
@@ -431,7 +430,7 @@
             <ul>
                     <li>File based</li>
                     <li>SQL database</li>
-                    <li>OGC Simple feature</li>
+                    <li>OGC Simple Features</li>
             </ul>
             <h4>Description</h4>
             <p>
@@ -449,14 +448,20 @@
                             portable</li>
             </p>
             <p>
-            To us, SpatiaLite seems to be the second best option after the <a
-               href="#geopackage">GeoPackage</a> format. They do build on top of
-               the same technology, SQLite.
+            Support for SpatiaLite is relatively limited and most software 
+            that supports SpatiaLite also supports <a
+               href="#geopackage">GeoPackage</a> as well. They build on top of
+               the same underlying technology, SQLite.
+            </p>
+            SpatialLite lacks the support for extensions or raster data
+            present in GeoPackage. While these are not necessarily must-have 
+            features, they may be useful. Like GeoPackage, it is unsuitable
+            for streaming.
             </p>
             <p>
-            Compared to GeoPackage, it lacks support for extensions and support for
-            raster data. That is certainly not a must-have feature, but it's good. If
-            we take this into consideration, like GeoPackage, it suffers the same issues inherint to SQLite that make it a poor choice for data interchange.
+            Since SpatiaLite offers no clear advantages over GeoPackage at 
+            this time, it should only be considered as a Shapefile 
+            replacement in niche scenarios.
             </p>
     </div>
 
@@ -477,11 +482,11 @@
             <h4>Description</h4>
             <p>
             Among non-geospatial people, CSV is very popular, but for most
-            geospatial applications it's an unusable format.
+            geospatial applications it is not an ideal format.
             </p>
             <p>
-            At least two reasons for not using CSV as Shapefile replacement: It's not
-            standardized (there are many dialects out there), and support for non-point
+            At least two reasons for not using CSV as Shapefile replacement: It isn't
+            standardized (there are many dialects out there) and support for non-point
             geospatial data is complicated.
             </p>
     </div>
@@ -491,24 +496,26 @@
             <h3>OGC KML</h3>
             <img class="format-logo img-thumbnail" src="images/kml.png"/>
             <p class="lead">
-            Originally provided by Google <a
-               href="http://opengeospatial.org/standards/kml">OGC KML</a> used to be
-               very popular vector data format.
+            <a href="http://opengeospatial.org/standards/kml">OGC KML</a> was a popular
+            popular vector data format due to the popularity of Google Earth.
             </p>
             <h4>Features</h4>
             <ul>
                     <li>file-based</li>
                     <li>XML</li>
                     <li>Combines geometry along with cartography</li>
-                    <li>Supports just WGS-84 coordinate system</li>
+                    <li>Supports just the WGS-84 coordinate system</li>
             </ul>
             <h4>Description</h4>
             <p>
-            Some years back, the KML format was very popular, but the geospatial
-            community hit upon its limits. Since it is XML based, it's not suitable for bigger
-            datasets. It combines cartography along with the data geometry in one
-            file, which does not seem to be a good solution. And it officially supports
-            only the WGS-84 coordinate reference system.
+            KML was originally devised as the exchange format for a software package called
+            Keyhole. When Google purchased Keyhole and released it as Google Earth, KML
+            gained in popularity. However, as the geospatial community hit the limits of 
+            both Google Earth and KML, KML's popularity has waned. Since it is XML based, it is not efficient 
+            for storing larger datasets. It combines cartography along with the data geometry in one
+            file, which is problematic when the data has the potential to be used in multiple
+            ways. Since it officially supports only the WGS-84 coordinate reference system,
+            it is not suitable for a number of applications.
             </p>
     </div>
     <div class="alert alert-secondary" role="alert">
@@ -516,7 +523,8 @@
             <h3>ESRI GeoDatabase</h3>
 
             <p class="lead">
-            At its most basic level, an <a href="http://desktop.arcgis.com/en/arcmap/10.3/manage-data/geodatabases/what-is-a-geodatabase.htm">ArcGIS geodatabase</a> is a collection of geographic
+            At its most basic level, an 
+            <a href="http://desktop.arcgis.com/en/arcmap/10.3/manage-data/geodatabases/what-is-a-geodatabase.htm">ArcGIS geodatabase</a> is a collection of geographic
             datasets of various types held in a common file system folder, a Microsoft
             Access database, or a multiuser relational DBMS (such as Oracle, Microsoft
             SQL Server, PostgreSQL, Informix, or IBM DB2).
@@ -531,12 +539,12 @@
             <h4>Description</h4>
             <p>
             GeoDatabase is very often used in the ArcGIS environment as the main
-            exchange data format. It's features are very complex and advanced.
+            exchange data format. Its features are very complex and advanced.
             </p>
             <p>
-            On the other hand, it is a proprietary closed format, which is used exclusively
-            in the environment of ESRI products, not implemented in other software
-            packages. It's a strong candidate for replacing Shapefiles for local data editing in an ArcGIS enviroment.
+            On the other hand, since it is a proprietary closed format, implementations 
+            outside the environment of ESRI products are extremely limited. It is only a 
+            candidate for replacing Shapefiles in an enviroment centered on ArcGIS.
             </p>
     </div>
 
