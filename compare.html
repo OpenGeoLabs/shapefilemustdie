@@ -242,8 +242,9 @@ for (var key in indata) {
             data.labels.push(frmt);
             data.datasets[0].data.push(value);
             data.datasets[0].label = meta[key].label;
+            data.datasets[0].backgroundColor = 'rgba(0, 0, 133, 0.5)';
+            data.datasets[0].borderColor = 'rgba(0, 0, 133, 0.5)';
         }
-        console.log(data);
         var ctx = document.getElementById(key+"-chart").getContext('2d');
         var myBarChart = new Chart(ctx, {
             type: 'bar',
@@ -258,6 +259,7 @@ for (var key in indata) {
                 }
             }
         });
+        console.log(myBarChart);
 
 };
 </script>
