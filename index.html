@@ -102,13 +102,16 @@
         <li><a href="#hierarchy">More complicated data structures are impossible
                 to save</a>. It's a "flat table" format.</li>
         <li><a href="#3d">There is no way to store 3D data with textures or
-				appearances such as material definitions.</a> There is also no way
-				to store solids or parametric objects.</li>
-		<li><a href="#projection">Projections defined in the *.prj file are
-				incompatible.</a> Compared to definitions in EPSG /
-				SpatialReference.org, Esri WKT often has different parameters,
-				names and sometimes missing parameters.</li>
-		<li><a href="#addmore">Add more</a> ...</li>
+		appearances such as material definitions.</a> There is also no way
+		to store solids or parametric objects.</li>
+	<li><a href="#projection">Projections defined in the *.prj file are
+		incompatible.</a> Compared to definitions in EPSG /
+		SpatialReference.org, Esri WKT often has different parameters,
+		names and sometimes missing parameters.</li>
+	<li>Line and polygon geometry type, single or multipart, cannot be reliably 
+		determined at the layer level, it must be determined at the 
+		individual feature level.
+	<li><a href="#addmore">Add more</a> ...</li>
     </ul>
     </div>
 
