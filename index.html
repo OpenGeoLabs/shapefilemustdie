@@ -108,8 +108,8 @@
 		incompatible.</a> Compared to definitions in EPSG /
 		SpatialReference.org, Esri WKT often has different parameters,
 		names and sometimes missing parameters.</li>
-	<li>Line and polygon geometry type, single or multipart, cannot be reliably 
-		determined at the layer level, it must be determined at the 
+	<li><a href="#featuretype">Line and polygon geometry type, single or multipart, cannot be reliably 
+		determined at the layer level</a>, it must be determined at the 
 		individual feature level.
 	<li><a href="#addmore">Add more</a> ...</li>
     </ul>
@@ -254,6 +254,17 @@
 		as axis order or unit definitions. Furthermore, they often miss
 		parameters required for reprojection ("Missing Bursa Wolf
 		Parameters", anyone?)
+    </p>
+    </div>
+	    
+	    
+    <div class="alert" role="alert">
+    <a name="featuretype"></a>
+    <h3>Multi part features has to be defined per-feature</h3>
+    <p>
+       Line and polygon geometry type, single or multipart, cannot be reliably 
+	determined at the layer level, it must be determined at the 
+	individual feature level. This leads to incositancy during automatic data processing, you can not relay on input geometry type and test each feature, whether it is single geometry or multiple geometries.
     </p>
     </div>
 
@@ -550,6 +561,7 @@
             candidate for replacing Shapefiles in an enviroment centered on ArcGIS.
             </p>
     </div>
+  
 
     <hr>
 
