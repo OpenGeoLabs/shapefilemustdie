@@ -82,6 +82,7 @@
     bad format and you should avoid its usage:</p>
 
     <ul>
+        <li><a href="#nocrs">No coordiante reference system definition</a>.</li>
         <li><a href="#multifile">It's a multifile format</a>.</li>
         <li><a href="#10characters">Attribute names are limited to 10
                 characters</a>.</li>
@@ -104,10 +105,9 @@
         <li><a href="#3d">There is no way to store 3D data with textures or
 		appearances such as material definitions.</a> There is also no way
 		to store solids or parametric objects.</li>
-	<li><a href="#projection">Projections defined in the *.prj file are
-		incompatible.</a> Compared to definitions in EPSG /
-		SpatialReference.org, Esri WKT often has different parameters,
-		names and sometimes missing parameters.</li>
+        <li><a href="#projection">Projections definition</a>. They are
+                incompatible or missing.
+		</li>
 	<li><a href="#featuretype">Line and polygon geometry type, single or multipart, cannot be reliably 
 		determined at the layer level</a>, it must be determined at the 
 		individual feature level.
@@ -249,7 +249,12 @@
     <a name="projection"></a>
     <h3>Projection Definition Inconsistencies</h3>
     <p>
-        Shapefiles use Esri WKT definitions, which are often incompatible
+        By default, Shapefile contains no information about coordinate reference
+        system at all. But some software packages do accept <code>*.prj</code>
+        files, which may contain CRS description.
+    </p>
+    <p>
+        It uses Esri WKT definitions, which are often incompatible
 		with standard definitions in EPSG or other sources regarding aspects such
 		as axis order or unit definitions. Furthermore, they often miss
 		parameters required for reprojection ("Missing Bursa Wolf
