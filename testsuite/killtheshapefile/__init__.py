@@ -66,6 +66,7 @@ def convert_to(inpt, frmt, tempdir):
     cmdline.extend(["-f", frmt[0], dest_filename, fullpath_in])
     subprocess.run(cmdline)
 
+
     return [frmt[0], frmt[1], dest_filename]
 
 
@@ -105,6 +106,7 @@ def get_metadata_time(formats, repeat=1):
 
         name, ext = os.path.splitext(fn)
         layer = os.path.basename(name)
+
         cmdline = ["ogrinfo", "-qq"]
         if frmt_name == "FlatGeobuf":
             cmdline.extend(["-oo", "VERIFY_BUFFERS=NO"])
@@ -161,6 +163,7 @@ def get_where_time(formats, where=None, repeat=1):
 
         name, ext = os.path.splitext(fn)
         layer = os.path.basename(name)
+
         cmdline = ["ogrinfo", "-qq"]
         if frmt_name == "FlatGeobuf":
             cmdline.extend(["-oo", "VERIFY_BUFFERS=NO"])
@@ -190,6 +193,7 @@ def get_spat_time(formats, spat=None, repeat=1):
 
         name, ext = os.path.splitext(fn)
         layer = os.path.basename(name)
+
         cmdline = ["ogrinfo", "-qq"]
         if frmt_name == "FlatGeobuf":
             cmdline.extend(["-oo", "VERIFY_BUFFERS=NO"])

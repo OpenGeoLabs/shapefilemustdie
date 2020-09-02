@@ -143,6 +143,10 @@
       extensions to try to overcome Shapefile limitations. Custom additions 
       are not supported by other tools and limit interoperability.
     </p>
+    <p>
+    <strong>NOTE:</strong> 3rd December is considered the <em>International Shapefile day</em>,
+    because thanks to modular, extensible architecture it can have 12+ sidecar files, 3 of which are mandatory.
+    </p>
     </div>
 
     <div class="alert" role="alert">
@@ -315,6 +319,7 @@
     <strong>List of some Shapefile alternatives</strong>
     <ul>
             <li><strong><a href="#geopackage">OGC GeoPackage</a></strong></li>
+            <li><strong><a href="#flatgeobuf">FlatGeobuf</a></strong></li>
             <li><strong><a href="#geojson">GeoJSON</a></strong></li>
             <li><a href="#gml">OGC GML</a></li>
             <li><a href="#spatialite">SpatiaLite</a></li>
@@ -378,6 +383,37 @@
               data locally.
             </p>
     </div>
+
+    <div class="alert alert-secondary" role="alert">
+        <a name="flatgeobuf"></a>
+        <h3>FlatGeobuf</h3>
+        <img class="format-logo img-thumbnail" style="width:100px;" src="https://bjornharrtell.github.io/flatgeobuf/logo.svg"/>
+        <p class="lead">
+        <a href="https://bjornharrtell.github.io/flatgeobuf">FlatGeobuf</a> is a new format,
+        designed for performance and simplicity.
+        </p>
+        <h4>Features</h4>
+        <ul>
+            <li>Binary encoding based on <a href="http://google.github.io/flatbuffers/">FlatBuffers</a></li>
+            <li>File based, single file</li>
+            <li>Vectors</li>
+            <li>Can be efficently serialized and streamed (read/write)</li>
+        </ul>
+        <h4>Description</h4>
+        <p>
+        FlatGeobuf is an open, standards-based, platform-independent, portable, self-describing, performant and compact format for transferring geospatial information.
+        </p>
+        <p>
+        FlatGeobuf is currently (2020) supported in GDAL 3.1 and QGIS development version</a>.
+        Reference TypeScript/JavaScript implementation is available and suitable for use in for example <a href="https://bjornharrtell.github.io/flatgeobuf/examples/openlayers">OpenLayers</a> and <a href="https://bjornharrtell.github.io/flatgeobuf/examples/leaflet/">Leaflet</a>.
+        </p>
+        <p>We recommend FlatGeobuf as a Shapefile replacement for 
+          scenarios where performance is critical and system to system integrations.
+          Because of the streaming capabilities it is also suitable as an alternative WFS output format
+          and is available as an official <a href="https://docs.geoserver.org/latest/en/user/community/flatgeobuf/index.html">extension to GeoServer</a>.
+        </p>
+    </div>
+
     <div class="alert" role="alert">
             <a name="geojson"></a>
             <h3>GeoJSON</h3>
