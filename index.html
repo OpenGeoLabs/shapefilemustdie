@@ -110,7 +110,8 @@
 		</li>
 	<li><a href="#featuretype">Line and polygon geometry type, single or multipart, cannot be reliably 
 		determined at the layer level</a>, it must be determined at the 
-		individual feature level.
+		individual feature level.</li>
+	<li><a href="#nonull">There is no NULL value</a>, it is painful for numeric values</li>
 	<li><a href="#addmore">Add more</a> ...</li>
     </ul>
     </div>
@@ -287,6 +288,14 @@
 	determined at the layer level, it must be determined at the 
 	individual feature level. This leads to incositancy during automatic data processing, you can not relay on input geometry type and test each feature, whether it is single geometry or multiple geometries.
     </p>
+    </div>
+
+    <div class="alert" role="alert">
+    <a name="nonull"></a>
+    <h3>There is no NULL value</h3>
+    <p>
+       There is no way to mark no data in a field of the attribute table. 
+       You cannot distingues zero and no data for numerical fields.</p>
     </div>
 
     <div class="alert" role="alert">
