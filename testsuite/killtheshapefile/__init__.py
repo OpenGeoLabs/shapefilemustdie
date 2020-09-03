@@ -15,9 +15,9 @@ FORMATS=(
     ["ESRI Shapefile", "shp"],
     ["GPKG", "gpkg"],
     ["GML", "gml"],
-    ["GeoJSON", "geojson"]
+    ["GeoJSON", "geojson"],
     #["FileGDB", "gdb"],
-    #["FlatGeobuf", "fgb"]
+    ["FlatGeobuf", "fgb"]
 )
 
 TEMP_DIR = None
@@ -62,7 +62,7 @@ def convert_to(inpt, frmt, tempdir):
 
     cmdline = ["ogr2ogr"]
     if frmt[0] == "FlatGeobuf":
-        cmdline.extend(["-nlt", "PROMOTE_TO_MULTI"])
+        cmdline.extend(["-nlt", "GEOMETRY"])
     cmdline.extend(["-f", frmt[0], dest_filename, fullpath_in])
     subprocess.run(cmdline)
 
