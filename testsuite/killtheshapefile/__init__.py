@@ -15,8 +15,9 @@ FORMATS=(
     ["ESRI Shapefile", "shp"],
     ["GPKG", "gpkg"],
     ["GML", "gml"],
-    ["GeoJSON", "geojson"] 
-    #["FileGDB", "gdb"]
+    ["GeoJSON", "geojson"]
+    ["FileGDB", "gdb"],
+    ["FlatGeobuf", "fgb"]
 )
 
 TEMP_DIR = None
@@ -59,7 +60,12 @@ def convert_to(inpt, frmt, tempdir):
     fullpath_in = os.path.join(tempdir, inpt)
     dest_filename = os.path.join(tempdir, "{}.{}".format(root_name, frmt[1]))
 
-    subprocess.run(["ogr2ogr", "-f", frmt[0], dest_filename, fullpath_in])
+    cmdline = ["ogr2ogr"]
+    if frmt[0] == "FlatGeobuf":
+        cmdline.extend(["-nlt", "PROMOTE_TO_MULTI"])
+    cmdline.extend(["-f", frmt[0], dest_filename, fullpath_in])
+    subprocess.run(cmdline)
+
 
     return [frmt[0], frmt[1], dest_filename]
 
@@ -100,8 +106,12 @@ def get_metadata_time(formats, repeat=1):
 
         name, ext = os.path.splitext(fn)
         layer = os.path.basename(name)
+        cmdline = ["ogrinfo", "-qq"]
+        if frmt_name == "FlatGeobuf":
+            cmdline.extend(["-oo", "VERIFY_BUFFERS=NO"])
+        cmdline.extend(["-so", fn, layer])
         time = timeit(
-            stmt = "subprocess.run(" + str(["ogrinfo", "-so", fn, layer])+ ", stdout=subprocess.PIPE)",
+            stmt = "subprocess.run(" + str(cmdline)+ ", stdout=subprocess.PIPE)",
             setup = "import subprocess", number = repeat)
         duration[frmt_name] = time
 
@@ -125,8 +135,12 @@ def get_fid_time(formats, fid = None, repeat=1):
 
         name, ext = os.path.splitext(fn)
         layer = os.path.basename(name)
+        cmdline = ["ogrinfo", "-qq"]
+        if frmt_name == "FlatGeobuf":
+            cmdline.extend(["-oo", "VERIFY_BUFFERS=NO"])
+        cmdline.extend(["-fid", fid, fn, layer])
         time = timeit(
-            stmt = "subprocess.run(" + str(["ogrinfo", "-fid", fid, fn, layer])+ ", stdout=subprocess.PIPE)",
+            stmt = "subprocess.run(" + str(cmdline)+ ", stdout=subprocess.PIPE)",
             setup = "import subprocess", number = repeat)
         duration[frmt_name] = time
 
@@ -148,8 +162,12 @@ def get_where_time(formats, where=None, repeat=1):
 
         name, ext = os.path.splitext(fn)
         layer = os.path.basename(name)
+        cmdline = ["ogrinfo", "-qq"]
+        if frmt_name == "FlatGeobuf":
+            cmdline.extend(["-oo", "VERIFY_BUFFERS=NO"])
+        cmdline.extend(["-where", where, fn, layer])
         time = timeit(
-            stmt = "subprocess.run(" + str(["ogrinfo", "-where", where, fn, layer])+ ", stdout=subprocess.PIPE)",
+            stmt = "subprocess.run(" + str(cmdline)+ ", stdout=subprocess.PIPE)",
             setup = "import subprocess", number = repeat)
         duration[frmt_name] = time
 
@@ -173,9 +191,12 @@ def get_spat_time(formats, spat=None, repeat=1):
 
         name, ext = os.path.splitext(fn)
         layer = os.path.basename(name)
+        cmdline = ["ogrinfo", "-qq"]
+        if frmt_name == "FlatGeobuf":
+            cmdline.extend(["-oo", "VERIFY_BUFFERS=NO"])
+        cmdline.extend(["-spat"] + spat + [fn, layer])
         time = timeit(
-            stmt = "subprocess.run(" + str(["ogrinfo", "-spat"] + \
-                spat + [fn, layer]) + ", stdout=subprocess.PIPE)",
+            stmt = "subprocess.run(" + str(cmdline) + ", stdout=subprocess.PIPE)",
             setup = "import subprocess", number = repeat)
         duration[frmt_name] = time
 
@@ -194,8 +215,12 @@ def get_seq_time(formats, repeat=1):
 
         name, ext = os.path.splitext(fn)
         layer = os.path.basename(name)
+        cmdline = ["ogrinfo", "-qq"]
+        if frmt_name == "FlatGeobuf":
+            cmdline.extend(["-oo", "VERIFY_BUFFERS=NO"])
+        cmdline.extend([fn, layer])
         time = timeit(
-            stmt = "subprocess.run(" + str(["ogrinfo", fn, layer]) + ", stdout=subprocess.PIPE)",
+            stmt = "subprocess.run(" + str(cmdline) + ", stdout=subprocess.PIPE)",
             setup = "import subprocess", number = repeat)
         duration[frmt_name] = time
 

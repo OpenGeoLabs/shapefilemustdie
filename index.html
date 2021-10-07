@@ -64,7 +64,7 @@
           <a href="http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf">specification is open</a>.</li>
         <li>For many use cases, it is <em>good enough</em>.
           <ul>
-            <li>Index files (e.g. *.shx) enable good reading performance.</li>
+            <li>Its index file (*.shx) contains the offset and length of each feature in the main file (*.shp) which enables good reading performance.</li>
             <li>It is relatively efficient in terms of file size. The resulting file, even
                     un-zipped, is relatively small compared to some other (mostly
                     text-based) formats.
@@ -110,7 +110,8 @@
 		</li>
 	<li><a href="#featuretype">Line and polygon geometry type, single or multipart, cannot be reliably 
 		determined at the layer level</a>, it must be determined at the 
-		individual feature level.
+		individual feature level.</li>
+	<li><a href="#nonull">There is no NULL value</a>, it is painful for numeric values</li>
 	<li><a href="#addmore">Add more</a> ...</li>
     </ul>
     </div>
@@ -122,8 +123,8 @@
        By default there is no definition of the coordinate reference system
        used. You can do it using e.g. <code>.prj</code>, but first: this is not
        standard part of the specification and second, there are still some
-       issues, see <a href="projection">projection issues</a> and <a
-                      href="multifile">multifile format</a> further below.
+       issues, see <a href="projection">projection issues</a> and <a href="multifile">multifile format</a> further below.
+
     </p>
     </div>
 
@@ -133,7 +134,7 @@
     <p>
     The Shapefile format uses <a
        href="https://en.wikipedia.org/wiki/Shapefile#Overview">at least 3
-       files</a> (*.shp, *.dbf, *.prj). Users cannot share just one file; you 
+       files</a> (*.shp, *.dbf, *.shx). Users cannot share just one file; you 
        must send them all. Users typically zip all the files into one archive
        and unzip them on the other end of the distribution chain, but this is 
        cumbersome and error-prone.
@@ -142,6 +143,10 @@
       In addition, other geospatial software packages routinely add their own 
       extensions to try to overcome Shapefile limitations. Custom additions 
       are not supported by other tools and limit interoperability.
+    </p>
+    <p>
+    <strong>NOTE:</strong> 3rd December is considered the <em>International Shapefile day</em>,
+    because thanks to modular, extensible architecture it can have 12+ sidecar files, 3 of which are mandatory.
     </p>
     </div>
 
@@ -286,6 +291,14 @@
     </div>
 
     <div class="alert" role="alert">
+    <a name="nonull"></a>
+    <h3>There is no NULL value</h3>
+    <p>
+       There is no way to mark no data in a field of the attribute table. 
+       You cannot distingues zero and no data for numerical fields.</p>
+    </div>
+
+    <div class="alert" role="alert">
     <a name="addmore"></a>
     <h3>Know about another issue? Send us more!</h3>
     <p>
@@ -315,6 +328,7 @@
     <strong>List of some Shapefile alternatives</strong>
     <ul>
             <li><strong><a href="#geopackage">OGC GeoPackage</a></strong></li>
+            <li><strong><a href="#flatgeobuf">FlatGeobuf</a></strong></li>
             <li><strong><a href="#geojson">GeoJSON</a></strong></li>
             <li><a href="#gml">OGC GML</a></li>
             <li><a href="#spatialite">SpatiaLite</a></li>
@@ -378,6 +392,37 @@
               data locally.
             </p>
     </div>
+
+    <div class="alert alert-secondary" role="alert">
+        <a name="flatgeobuf"></a>
+        <h3>FlatGeobuf</h3>
+        <img class="format-logo img-thumbnail" style="width:100px;" src="https://bjornharrtell.github.io/flatgeobuf/logo.svg"/>
+        <p class="lead">
+        <a href="https://bjornharrtell.github.io/flatgeobuf">FlatGeobuf</a> is a new format,
+        designed for performance and simplicity.
+        </p>
+        <h4>Features</h4>
+        <ul>
+            <li>Binary encoding based on <a href="http://google.github.io/flatbuffers/">FlatBuffers</a></li>
+            <li>File based, single file</li>
+            <li>Vectors</li>
+            <li>Can be efficently serialized and streamed (read/write)</li>
+        </ul>
+        <h4>Description</h4>
+        <p>
+        FlatGeobuf is an open, standards-based, platform-independent, portable, self-describing, performant and compact format for transferring geospatial information.
+        </p>
+        <p>
+        FlatGeobuf is currently (2020) supported in GDAL 3.1 and QGIS development version</a>.
+        Reference TypeScript/JavaScript implementation is available and suitable for use in for example <a href="https://bjornharrtell.github.io/flatgeobuf/examples/openlayers">OpenLayers</a> and <a href="https://bjornharrtell.github.io/flatgeobuf/examples/leaflet/">Leaflet</a>.
+        </p>
+        <p>We recommend FlatGeobuf as a Shapefile replacement for 
+          scenarios where performance is critical and system to system integrations.
+          Because of the streaming capabilities it is also suitable as an alternative WFS output format
+          and is available as an official <a href="https://docs.geoserver.org/latest/en/user/community/flatgeobuf/index.html">extension to GeoServer</a>.
+        </p>
+    </div>
+
     <div class="alert" role="alert">
             <a name="geojson"></a>
             <h3>GeoJSON</h3>
