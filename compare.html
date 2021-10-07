@@ -70,7 +70,7 @@
     <h2>Results</h2>
     <div id="test-results"></div>
     <p>
-    It was measured on notebook with SSD, 8GB RAM, Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz
+    It was measured on an EC2 c5a.4xlarge instance (SSD, 32GB RAM, AMD® Epyc 7r32 16 cores)
     </p>
 
     <h3>File size [GB]</h3>
@@ -159,41 +159,47 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
 <script type="text/javascript">
 var indata = {
-  "spat": {
-    "GPKG": 0.048057263978989795,
-    "GML": 343.3025719569996,
-    "ESRI Shapefile": 16.999171105999267,
-    "GeoJSON": null
-  },
-  "seq": {
-    "GPKG": 241.53338077000808,
-    "GML": 604.6719867950014,
-    "ESRI Shapefile": 237.03450499402243,
-    "GeoJSON": null
-  },
-  "fid": {
-    "GPKG": 2.938916106009856,
-    "GML": 241.60755829000846,
-    "ESRI Shapefile": 0.34073773300042376,
-    "GeoJSON": null
-  },
-  "where": {
-    "GPKG": 7.732582016004017,
-    "GML": 377.7504133799812,
-    "ESRI Shapefile": 40.549172239989275,
-    "GeoJSON": null
-  },
   "size": {
-    "GPKG": 2830307328,
-    "GML": 6509654779,
     "ESRI Shapefile": 3479576609,
-    "GeoJSON": 4024587722
+    "GPKG": 2830311424,
+    "GML": 7188879952,
+    "GeoJSON": 4024587564,
+    "FlatGeobuf": 2801998840
   },
   "metadata": {
-    "GPKG": 3.129738196992548,
-    "GML": 258.6620598669979,
-    "ESRI Shapefile": 0.37446932701277547,
-    "GeoJSON": null
+    "ESRI Shapefile": 0.10842616500030999,
+    "GPKG": 0.01768560799973784,
+    "GML": 0.009922048000134964,
+    "GeoJSON": null,
+    "FlatGeobuf": 0.014787324000280933
+  },
+  "fid": {
+    "ESRI Shapefile": 0.11708477199999834,
+    "GPKG": 0.016842241999711405,
+    "GML": 1.0695189920002122,
+    "GeoJSON": null,
+    "FlatGeobuf": 0.015855214000112028
+  },
+  "where": {
+    "ESRI Shapefile": 21.498628329999974,
+    "GPKG": 0.925118215999646,
+    "GML": 150.305511948,
+    "GeoJSON": null,
+    "FlatGeobuf": 12.44457889100022
+  },
+  "spat": {
+    "ESRI Shapefile": 2.1773067189997164,
+    "GPKG": 0.018055573999845365,
+    "GML": 138.80121869899995,
+    "GeoJSON": null,
+    "FlatGeobuf": 0.016141144999892276
+  },
+  "seq": {
+    "ESRI Shapefile": 17.635088592000102,
+    "GPKG": 16.09325597299994,
+    "GML": 147.5099645690002,
+    "GeoJSON": null,
+    "FlatGeobuf": 8.777913015000195
   }
 };
 
